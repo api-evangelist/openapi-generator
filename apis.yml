@@ -8,6 +8,7 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - Documentation
   - OpenAPI
   - Code Generation
   - SDK
@@ -15,16 +16,40 @@ tags:
 url: >-
   https://raw.githubusercontent.com/api-evangelist/openapi-generator/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-03-16'
+modified: '2026-03-25'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: openapi-generator:openapi-generator
+    name: OpenAPI Generator
+    description: >-
+      OpenAPI Generator generates client libraries, server stubs, API
+      documentation, and configuration from OpenAPI specifications, supporting
+      over 50 languages and frameworks.
+    humanURL: https://openapi-generator.tech
+    tags:
+      - OpenAPI
+      - Code Generation
+      - SDK
+    properties:
+      - type: Documentation
+        url: https://openapi-generator.tech/docs/installation
+      - type: Getting Started
+        url: https://openapi-generator.tech/docs/usage
+      - type: GitHub Repository
+        url: https://github.com/OpenAPITools/openapi-generator
 common:
   - type: Website
-    url: https://openapi-generator.tech/
+    url: https://openapi-generator.tech
   - type: Documentation
     url: https://openapi-generator.tech/docs/installation
   - type: GitHub Organization
     url: https://github.com/OpenAPITools/openapi-generator
+  - type: Blog
+    url: https://openapi-generator.tech/blog
+  - type: FAQ
+    url: https://openapi-generator.tech/docs/faq
+  - type: Generators
+    url: https://openapi-generator.tech/docs/generators
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
