@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Documentation
-  - OpenAPI
   - Code Generation
-  - SDK
+  - Documentation
   - Open Source
+  - OpenAPI
+  - SDK
 url: >-
   https://raw.githubusercontent.com/api-evangelist/openapi-generator/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -27,8 +27,8 @@ apis:
       over 50 languages and frameworks.
     humanURL: https://openapi-generator.tech
     tags:
-      - OpenAPI
       - Code Generation
+      - OpenAPI
       - SDK
     properties:
       - type: Documentation
