@@ -1,0 +1,13 @@
+{
+  "repo": "openapi-generator",
+  "feeds": [
+    {
+      "source": "https://openapi-generator.tech/blog",
+      "feed_url": "https://openapi-generator.tech/blog/rss.xml",
+      "saved": 1,
+      "title": "OpenAPI Generator Blog"
+    }
+  ],
+  "post_count": 1,
+  "fetched": "2026-05-03T23:32:58Z"
+}
