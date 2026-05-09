@@ -3,11 +3,11 @@
   "feeds": [
     {
       "source": "https://openapi-generator.tech/blog",
-      "feed_url": "https://openapi-generator.tech/blog/rss.xml",
-      "saved": 1,
-      "title": "OpenAPI Generator Blog"
+      "feed_url": "https://openapi-generator.tech/blog/rss",
+      "title": "OpenAPI Generator Blog",
+      "saved": 0
     }
   ],
   "post_count": 1,
-  "fetched": "2026-05-03T23:32:58Z"
+  "fetched": "2026-05-09T20:17:51Z"
 }
