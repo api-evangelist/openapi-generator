@@ -35,16 +35,16 @@ apis:
     properties:
       - type: Documentation
         url: https://openapi-generator.tech/docs/installation
-      - type: Getting Started
+      - type: GettingStarted
         url: https://openapi-generator.tech/docs/usage
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/OpenAPITools/openapi-generator
 common:
   - type: Website
     url: https://openapi-generator.tech
   - type: Documentation
     url: https://openapi-generator.tech/docs/installation
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/OpenAPITools/openapi-generator
   - type: Blog
     url: https://openapi-generator.tech/blog
