@@ -2,12 +2,20 @@
   "repo": "openapi-generator",
   "feeds": [
     {
-      "source": "https://openapi-generator.tech/blog",
+      "source": "https://openapi-generator.tech/blog/rss",
       "feed_url": "https://openapi-generator.tech/blog/rss",
-      "title": "OpenAPI Generator Blog",
-      "saved": 0
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    },
+    {
+      "source": "https://github.com/OpenAPITools/openapi-generator",
+      "feed_url": "https://github.com/OpenAPITools/openapi-generator",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
   "post_count": 1,
-  "fetched": "2026-05-17T20:20:35Z"
+  "fetched": "2026-06-01T23:35:02Z"
 }
