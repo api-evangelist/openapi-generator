@@ -2,8 +2,8 @@
   "repo": "openapi-generator",
   "feeds": [
     {
-      "source": "https://openapi-generator.tech/blog/rss",
-      "feed_url": "https://openapi-generator.tech/blog/rss",
+      "source": "https://openapi-generator.tech/blog/rss.xml",
+      "feed_url": "https://openapi-generator.tech/blog/rss.xml",
       "title": "",
       "saved": 0,
       "method": "feed"
@@ -17,5 +17,5 @@
     }
   ],
   "post_count": 1,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:03:07Z"
 }
