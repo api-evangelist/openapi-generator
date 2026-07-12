@@ -40,6 +40,8 @@ apis:
       - type: GitHubRepository
         url: https://github.com/OpenAPITools/openapi-generator
 common:
+  - type: DomainSecurity
+    url: security/openapi-generator-domain-security.yml
   - type: Website
     url: https://openapi-generator.tech
   - type: Documentation
