@@ -1,23 +1,36 @@
 aid: openapi-generator
 name: OpenAPI Generator
 description: >-
-  OpenAPI Generator is an open-source tool that generates client libraries,
-  server stubs, API documentation, and configuration automatically given an
-  OpenAPI Specification. It supports over 50 client generators in various
-  programming languages and frameworks.
+  OpenAPI Generator is a community-governed, Apache-2.0 open-source project that
+  generates client libraries (SDKs), server stubs, API documentation and
+  configuration automatically from an OpenAPI Specification (v2 and v3). Forked
+  from Swagger Codegen in 2018 by more than 40 of that project's top contributors
+  and template creators, it is one of the most widely deployed implementations of
+  the OpenAPI Specification in existence. The product is a CLI plus Maven, Gradle
+  and sbt plugins, a Docker image and an embeddable JVM library, distributed
+  through npm, PyPI, Maven Central, Homebrew, Scoop and Docker Hub. A hosted
+  Online Generator REST API at api.openapi-generator.tech offers the same
+  generation over HTTP, anonymously and without a key, across 84 client
+  generators and 65 server frameworks.
 type: Index
 accessModel:
-  pricing: freemium
-  onboarding: unknown
+  pricing: free
+  onboarding: none
   trial: false
-  try_now: false
-  public: false
-  label: Freemium
-  confidence: medium
+  try_now: true
+  public: true
+  label: Free / Open Source
+  confidence: high
   source:
   - plans
-  generated: '2026-07-22'
-  method: derived
+  - https://openapi-generator.tech/docs/installation
+  - https://api.openapi-generator.tech/api/gen/clients
+  generated: '2026-08-06'
+  method: searched
+  note: >-
+    Apache-2.0 project with no commercial tier, no sign-up and no API key; the
+    hosted generator answers anonymously. The prior derived value (freemium) came
+    from a scaffold plans file carrying invented paid tiers, corrected 2026-08-06.
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/openapi-generator.png
@@ -27,26 +40,50 @@ tags:
   - Open Source
   - OpenAPI
   - SDK
+  - API Tooling
+  - Developer Tools
+  - Swagger
+  - Server Stubs
+  - Codegen
 url: >-
   https://raw.githubusercontent.com/api-evangelist/openapi-generator/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-04-28'
+modified: '2026-08-06'
 specificationVersion: '0.19'
 apis:
   - aid: openapi-generator:openapi-generator
-    name: OpenAPI Generator
+    name: OpenAPI Generator Online
     description: >-
-      OpenAPI Generator generates client libraries, server stubs, API
-      documentation, and configuration from OpenAPI specifications, supporting
-      over 50 languages and frameworks.
-    humanURL: https://openapi-generator.tech
+      The hosted OpenAPI Generator Online API — a seven-operation REST service
+      that lists the available client generators and server frameworks, returns
+      each generator's configuration options, generates a client library or
+      server stub from an OpenAPI document, and hands back a transient download
+      code. Anonymous and unauthenticated, described by its own Swagger 2.0
+      document at /api-docs, with no pagination, no idempotency and no published
+      rate limit.
+    humanURL: https://openapi-generator.tech/docs/online
+    baseURL: https://api.openapi-generator.tech
     tags:
       - Code Generation
       - OpenAPI
       - SDK
     properties:
+      - type: OpenAPI
+        url: openapi/openapi-generator-online-swagger.json
+      - type: Overlay
+        url: overlays/openapi-generator-online-overlay.yaml
+      - type: Authentication
+        url: authentication/openapi-generator-authentication.yml
+      - type: Conventions
+        url: conventions/openapi-generator-conventions.yml
+      - type: ErrorCatalog
+        url: errors/openapi-generator-problem-types.yml
+      - type: DataModel
+        url: data-model/openapi-generator-data-model.yml
+      - type: APIReference
+        url: https://api.openapi-generator.tech/
       - type: Documentation
-        url: https://openapi-generator.tech/docs/installation
+        url: https://openapi-generator.tech/docs/online
       - type: GettingStarted
         url: https://openapi-generator.tech/docs/usage
       - type: GitHubRepository
@@ -54,18 +91,63 @@ apis:
 common:
   - type: DomainSecurity
     url: security/openapi-generator-domain-security.yml
+  - type: Packages
+    url: packages/openapi-generator-packages.yml
+  - type: CLI
+    url: cli/openapi-generator-cli.yml
+  - type: ChangeLog
+    url: changelog/openapi-generator-changelog.yml
+  - type: Lifecycle
+    url: lifecycle/openapi-generator-lifecycle.yml
+  - type: Conformance
+    url: conformance/openapi-generator-conformance.yml
+  - type: MCPServer
+    url: mcp/openapi-generator-mcp.yml
+  - type: AgentSkill
+    url: skills/_index.yml
+  - type: LLMsTxt
+    url: llms/openapi-generator-llms.txt
+  - type: RateLimits
+    url: rate-limits/openapi-generator-rate-limits.yml
+  - type: Plans
+    url: plans/openapi-generator-plans-pricing.yml
+  - type: FinOps
+    url: finops/openapi-generator-finops.yml
   - type: Website
+    url: https://openapi-generator.tech
+  - type: DeveloperPortal
     url: https://openapi-generator.tech
   - type: Documentation
     url: https://openapi-generator.tech/docs/installation
+  - type: APIReference
+    url: https://api.openapi-generator.tech/
+  - type: GettingStarted
+    url: https://openapi-generator.tech/docs/usage
   - type: GitHubOrganization
+    url: https://github.com/OpenAPITools
+  - type: GitHubRepository
     url: https://github.com/OpenAPITools/openapi-generator
+  - type: Support
+    url: https://github.com/OpenAPITools/openapi-generator/issues
+  - type: Roadmap
+    url: https://openapi-generator.tech/docs/roadmap
   - type: Blog
     url: https://openapi-generator.tech/blog
   - type: FAQ
     url: https://openapi-generator.tech/docs/faq
   - type: Generators
     url: https://openapi-generator.tech/docs/generators
+  - type: Plugins
+    url: https://openapi-generator.tech/docs/plugins
+  - type: Team
+    url: https://openapi-generator.tech/team
+  - type: License
+    url: https://github.com/OpenAPITools/openapi-generator/blob/master/LICENSE
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-06'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1
