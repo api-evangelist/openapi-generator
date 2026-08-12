@@ -51,44 +51,61 @@ created: '2026-03-16'
 modified: '2026-08-06'
 specificationVersion: '0.19'
 apis:
-  - aid: openapi-generator:openapi-generator
-    name: OpenAPI Generator Online
-    description: >-
-      The hosted OpenAPI Generator Online API — a seven-operation REST service
-      that lists the available client generators and server frameworks, returns
-      each generator's configuration options, generates a client library or
-      server stub from an OpenAPI document, and hands back a transient download
-      code. Anonymous and unauthenticated, described by its own Swagger 2.0
-      document at /api-docs, with no pagination, no idempotency and no published
-      rate limit.
-    humanURL: https://openapi-generator.tech/docs/online
-    baseURL: https://api.openapi-generator.tech
-    tags:
-      - Code Generation
-      - OpenAPI
-      - SDK
-    properties:
-      - type: OpenAPI
-        url: openapi/openapi-generator-online-swagger.json
-      - type: Overlay
-        url: overlays/openapi-generator-online-overlay.yaml
-      - type: Authentication
-        url: authentication/openapi-generator-authentication.yml
-      - type: Conventions
-        url: conventions/openapi-generator-conventions.yml
-      - type: ErrorCatalog
-        url: errors/openapi-generator-problem-types.yml
-      - type: DataModel
-        url: data-model/openapi-generator-data-model.yml
-      - type: APIReference
-        url: https://api.openapi-generator.tech/
-      - type: Documentation
-        url: https://openapi-generator.tech/docs/online
-      - type: GettingStarted
-        url: https://openapi-generator.tech/docs/usage
-      - type: GitHubRepository
-        url: https://github.com/OpenAPITools/openapi-generator
+- aid: openapi-generator:openapi-generator-clients-api
+  name: OpenAPI Generator Clients API
+  description: The clients API from OpenAPI Generator — 3 operation(s) for clients.
+  humanURL: https://openapi-generator.tech/docs/online
+  baseURL: https://api.openapi-generator.tech
+  tags:
+  - clients
+  properties:
+  - type: OpenAPI
+    url: openapi/openapi-generator-clients-api-openapi.yml
+  - type: Authentication
+    url: authentication/openapi-generator-authentication.yml
+  - type: Conventions
+    url: conventions/openapi-generator-conventions.yml
+  - type: ErrorCatalog
+    url: errors/openapi-generator-problem-types.yml
+  - type: DataModel
+    url: data-model/openapi-generator-data-model.yml
+  - type: APIReference
+    url: https://api.openapi-generator.tech/
+  - type: Documentation
+    url: https://openapi-generator.tech/docs/online
+  - type: GettingStarted
+    url: https://openapi-generator.tech/docs/usage
+  - type: GitHubRepository
+    url: https://github.com/OpenAPITools/openapi-generator
+- aid: openapi-generator:openapi-generator-servers-api
+  name: OpenAPI Generator Servers API
+  description: The servers API from OpenAPI Generator — 3 operation(s) for servers.
+  humanURL: https://openapi-generator.tech/docs/online
+  baseURL: https://api.openapi-generator.tech
+  tags:
+  - servers
+  properties:
+  - type: OpenAPI
+    url: openapi/openapi-generator-servers-api-openapi.yml
+  - type: Authentication
+    url: authentication/openapi-generator-authentication.yml
+  - type: Conventions
+    url: conventions/openapi-generator-conventions.yml
+  - type: ErrorCatalog
+    url: errors/openapi-generator-problem-types.yml
+  - type: DataModel
+    url: data-model/openapi-generator-data-model.yml
+  - type: APIReference
+    url: https://api.openapi-generator.tech/
+  - type: Documentation
+    url: https://openapi-generator.tech/docs/online
+  - type: GettingStarted
+    url: https://openapi-generator.tech/docs/usage
+  - type: GitHubRepository
+    url: https://github.com/OpenAPITools/openapi-generator
 common:
+  - type: Overlay
+    url: overlays/openapi-generator-online-overlay.yaml
   - type: DomainSecurity
     url: security/openapi-generator-domain-security.yml
   - type: Packages
