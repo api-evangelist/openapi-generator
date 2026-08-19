@@ -1,0 +1,117 @@
+generated: '2026-08-06'
+method: searched
+source: https://openapi-generator.tech/docs/installation
+description: >-
+  First-party distributions of the OpenAPI Generator tool itself, verified live
+  against each public registry on 2026-08-06. These are the product (a CLI, a
+  library, build-tool plugins and a container image) rather than client SDKs for
+  the hosted Online Generator API — that API (api.openapi-generator.tech) ships
+  no client library of its own. Version numbers below are the latest published
+  at probe time; npm publishes the wrapper's own version line (2.x), separate
+  from the generator release line (7.x).
+packages:
+  - language: javascript
+    registry: npm
+    name: "@openapitools/openapi-generator-cli"
+    url: https://www.npmjs.com/package/@openapitools/openapi-generator-cli
+    install: npm install @openapitools/openapi-generator-cli -g
+    version: 2.40.1
+    repo: https://github.com/OpenAPITools/openapi-generator-cli
+    license: Apache-2.0
+    official: true
+    note: Cross-platform npm wrapper around the JAR; version-manager selects the generator release.
+  - language: python
+    registry: pypi
+    name: openapi-generator-cli
+    url: https://pypi.org/project/openapi-generator-cli/
+    install: pip install openapi-generator-cli
+    version: 7.24.0
+    license: Apache-2.0
+    official: true
+    note: Requires a java executable; `pip install openapi-generator-cli[jdk4py]` bundles a JDK (python>=3.10).
+  - language: java
+    registry: maven-central
+    name: org.openapitools:openapi-generator-cli
+    url: https://central.sonatype.com/artifact/org.openapitools/openapi-generator-cli
+    install: java -jar openapi-generator-cli.jar help
+    version: 7.14.0
+    license: Apache-2.0
+    official: true
+    note: The executable JAR; also runnable via `jbang --java 11 org.openapitools:openapi-generator-cli:LATEST`.
+  - language: java
+    registry: maven-central
+    name: org.openapitools:openapi-generator
+    url: https://central.sonatype.com/artifact/org.openapitools/openapi-generator
+    version: 7.14.0
+    license: Apache-2.0
+    official: true
+    note: The generator library, for embedding generation in JVM applications.
+  - language: java
+    registry: maven-central
+    name: org.openapitools:openapi-generator-core
+    url: https://central.sonatype.com/artifact/org.openapitools/openapi-generator-core
+    version: 7.14.0
+    license: Apache-2.0
+    official: true
+  - language: java
+    registry: maven-central
+    name: org.openapitools:openapi-generator-maven-plugin
+    url: https://central.sonatype.com/artifact/org.openapitools/openapi-generator-maven-plugin
+    version: 7.14.0
+    license: Apache-2.0
+    official: true
+    note: Build-time generation for Maven projects.
+  - language: java
+    registry: maven-central
+    name: org.openapitools:openapi-generator-gradle-plugin
+    url: https://central.sonatype.com/artifact/org.openapitools/openapi-generator-gradle-plugin
+    version: 7.14.0
+    license: Apache-2.0
+    official: true
+    note: Build-time generation for Gradle projects.
+  - language: scala
+    registry: maven-central
+    name: org.openapitools:sbt-openapi-generator
+    url: https://central.sonatype.com/artifact/org.openapitools/sbt-openapi-generator
+    version: 7.13.0
+    license: Apache-2.0
+    official: true
+    note: sbt plugin; trails the main release line by one version at probe time.
+  - language: java
+    registry: maven-central
+    name: org.openapitools:openapi-generator-online
+    url: https://central.sonatype.com/artifact/org.openapitools/openapi-generator-online
+    version: 7.14.0
+    license: Apache-2.0
+    official: true
+    note: The self-hostable server behind api.openapi-generator.tech (openapi/openapi-generator-online-swagger.json).
+  - language: java
+    registry: maven-central
+    name: org.openapitools:jackson-databind-nullable
+    url: https://central.sonatype.com/artifact/org.openapitools/jackson-databind-nullable
+    version: 0.2.6
+    license: Apache-2.0
+    official: true
+    note: Runtime support library depended on by generated Java clients.
+  - language: any
+    registry: docker-hub
+    name: openapitools/openapi-generator-cli
+    url: https://hub.docker.com/r/openapitools/openapi-generator-cli
+    install: docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate -i /local/petstore.yaml -g go -o /local/out/go
+    official: true
+    note: Standalone executable image; 50M+ pulls at probe time.
+other_install_channels:
+  - method: homebrew
+    platform: macOS
+    command: brew install openapi-generator
+  - method: scoop
+    platform: Windows
+    command: scoop install openapi-generator-cli
+  - method: bash-launcher
+    platform: Linux/macOS/Windows
+    source: https://github.com/OpenAPITools/openapi-generator/blob/master/bin/utils/openapi-generator-cli.sh
+client_sdks_for_hosted_api: none
+client_sdks_note: >-
+  The hosted Online Generator API at api.openapi-generator.tech publishes no
+  first-party client library in any language; it is a five-path anonymous REST
+  API intended for direct HTTP use. No SDKs pointer is emitted for that reason.

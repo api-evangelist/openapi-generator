@@ -1,0 +1,69 @@
+generated: '2026-08-06'
+method: derived
+source: openapi/openapi-generator-online-swagger.json
+description: >-
+  Entity-relationship graph for the OpenAPI Generator Online API, derived from
+  the five `definitions` in the service's Swagger 2.0 document and the $ref links
+  between them. This is a small, verb-shaped API — the model describes a
+  generation request and its transient output, not persistent resources.
+spec: openapi/openapi-generator-online-swagger.json
+entities:
+  - name: GeneratorInput
+    description: >-
+      The request body for both generate operations. Carries either a spec
+      location (openAPIUrl) or an inline spec (spec), plus generator options.
+    fields:
+      - {name: openAPIUrl, type: string, description: 'URL of the OpenAPI document to generate from. Example in spec: the project petstore.yaml on raw.githubusercontent.com.'}
+      - {name: spec, type: object, description: The OpenAPI document inline, as an alternative to openAPIUrl.}
+      - {name: options, type: 'map<string,string>', description: 'Generator config options — the same keys returned by GET /api/gen/clients/{language}.'}
+      - {name: openapiNormalizer, type: array<string>, description: OpenAPI normalizer rules applied before generation.}
+      - {name: authorizationValue, type: AuthorizationValue, description: Credential used to fetch a protected openAPIUrl.}
+  - name: AuthorizationValue
+    description: A credential the generator presents when retrieving the input spec.
+    fields:
+      - {name: keyName, type: string}
+      - {name: type, type: string}
+      - {name: value, type: string}
+      - {name: urlMatcher, type: PredicateOfURL, description: Restricts which URLs the credential is sent to.}
+  - name: PredicateOfURL
+    description: 'URL match predicate scoping an AuthorizationValue. Declared as an empty object in the spec — no properties are described, so a generated client cannot construct one meaningfully.'
+    fields: []
+  - name: CliOption
+    description: >-
+      One configuration option exposed by a generator. Returned as a map keyed by
+      option name from GET /api/gen/clients/{language} and
+      GET /api/gen/servers/{framework}.
+    fields:
+      - {name: opt, type: string}
+      - {name: description, type: string}
+      - {name: type, type: string}
+      - {name: default, type: string}
+      - {name: optValue, type: string}
+      - {name: enum, type: 'map<string,string>'}
+  - name: ResponseCode
+    description: The result of a generate call — a transient download handle.
+    fields:
+      - {name: code, type: string, description: 'File download code (UUID). Example in spec: d40029be-eda6-4d62-b1ef-d05e2e91a72a.'}
+      - {name: link, type: string, description: 'URL for fetching the generated client. The spec example still shows http://localhost:8080/... — the deployed service returns its own host.'}
+relationships:
+  - {from: GeneratorInput, to: AuthorizationValue, kind: has_one, via: authorizationValue}
+  - {from: AuthorizationValue, to: PredicateOfURL, kind: has_one, via: urlMatcher}
+  - {from: GeneratorInput, to: ResponseCode, kind: produces, via: 'POST /api/gen/clients/{language} | POST /api/gen/servers/{framework}'}
+  - {from: ResponseCode, to: DownloadArtifact, kind: resolves_to, via: 'code -> GET /api/gen/download/{fileId}'}
+  - {from: Generator, to: CliOption, kind: has_many, via: 'GET /api/gen/clients/{language} | GET /api/gen/servers/{framework} (map keyed by option name)'}
+implicit_entities:
+  - name: Generator
+    description: >-
+      Not a declared definition — a generator is identified only by its string
+      name in the arrays returned by GET /api/gen/clients (84 names at probe
+      time) and GET /api/gen/servers (65 names). Its option surface is CliOption.
+  - name: DownloadArtifact
+    description: >-
+      Not a declared definition — the zip stream returned by GET
+      /api/gen/download/{fileId}. Transient; an unknown or expired fileId
+      returns 500 (see errors/openapi-generator-problem-types.yml).
+id_prefixes:
+  - {entity: ResponseCode, field: code, format: uuid, note: 'No prefix; a bare UUID.'}
+notes:
+  - No entity is persistent or listable — there is no GET for a previously generated artifact other than by its opaque code.
+  - PredicateOfURL is a modelling gap in the published spec: a $ref target with zero described properties.

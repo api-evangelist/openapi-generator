@@ -1,0 +1,169 @@
+generated: '2026-08-06'
+method: derived
+source: openapi/openapi-generator-online-swagger.json
+status: candidate
+description: 'OpenAPI Generator publishes NO official hosted or remote MCP server. Searched on 2026-08-06:
+  no /.well-known/* MCP or OAuth discovery document on either openapi-generator.tech or api.openapi-generator.tech
+  (all 404), no MCP entry in the project docs navigation, and no MCP endpoint referenced from the Online
+  Generator docs. The tool list below is a CANDIDATE derived from the seven real operations in the published
+  Swagger document — it describes what an MCP server over this API would expose, and is not a claim that
+  one exists.'
+official_server: none
+official_server_evidence:
+- url: https://openapi-generator.tech/.well-known/oauth-authorization-server
+  http_status: 404
+  fetched: '2026-08-06'
+- url: https://api.openapi-generator.tech/.well-known/oauth-authorization-server
+  http_status: 404
+  fetched: '2026-08-06'
+- url: https://api.openapi-generator.tech/.well-known/ai-plugin.json
+  http_status: 404
+  fetched: '2026-08-06'
+transport: null
+authentication: none
+authentication_note: The backing API is anonymous, so a server over it would need no credential — see
+  authentication/openapi-generator-authentication.yml.
+tools:
+- name: list_client_generators
+  description: List every client-library generator the service supports.
+  rest:
+    operationId: clientOptions
+    method: GET
+    path: /api/gen/clients
+  inputSchema:
+    type: object
+    properties: {}
+    required: []
+- name: list_server_generators
+  description: List every server-stub generator framework the service supports.
+  rest:
+    operationId: serverOptions
+    method: GET
+    path: /api/gen/servers
+  inputSchema:
+    type: object
+    properties: {}
+    required: []
+- name: get_client_generator_options
+  description: Return the configuration options for one client generator.
+  rest:
+    operationId: getClientOptions
+    method: GET
+    path: /api/gen/clients/{language}
+  inputSchema:
+    type: object
+    properties:
+      language:
+        type: string
+        description: The target language for the client library.
+    required:
+    - language
+- name: get_server_generator_options
+  description: Return the configuration options for one server framework.
+  rest:
+    operationId: getServerOptions
+    method: GET
+    path: /api/gen/servers/{framework}
+  inputSchema:
+    type: object
+    properties:
+      framework:
+        type: string
+        description: The target framework for the server stub.
+    required:
+    - framework
+- name: generate_client
+  description: Generate a client library from an OpenAPI document and return a download code.
+  rest:
+    operationId: generateClient
+    method: POST
+    path: /api/gen/clients/{language}
+  inputSchema:
+    type: object
+    properties:
+      language:
+        type: string
+        description: The target language for the client library.
+      generatorInput:
+        type: object
+        description: GeneratorInput — see data-model/openapi-generator-data-model.yml.
+        properties:
+          openAPIUrl:
+            type: string
+          spec:
+            type: object
+          options:
+            type: object
+            additionalProperties:
+              type: string
+          openapiNormalizer:
+            type: array
+            items:
+              type: string
+          authorizationValue:
+            type: object
+    required:
+    - language
+    - generatorInput
+- name: generate_server
+  description: Generate a server stub from an OpenAPI document and return a download code.
+  rest:
+    operationId: generateServerForLanguage
+    method: POST
+    path: /api/gen/servers/{framework}
+  inputSchema:
+    type: object
+    properties:
+      framework:
+        type: string
+        description: The target framework for the server stub.
+      generatorInput:
+        type: object
+        properties:
+          openAPIUrl:
+            type: string
+          spec:
+            type: object
+          options:
+            type: object
+            additionalProperties:
+              type: string
+          openapiNormalizer:
+            type: array
+            items:
+              type: string
+          authorizationValue:
+            type: object
+    required:
+    - framework
+    - generatorInput
+- name: download_generated_artifact
+  description: Download a previously generated artifact by its file code.
+  rest:
+    operationId: downloadFile
+    method: GET
+    path: /api/gen/download/{fileId}
+  inputSchema:
+    type: object
+    properties:
+      fileId:
+        type: string
+        description: The `code` returned by generate_client or generate_server (UUID).
+    required:
+    - fileId
+coverage:
+  rest_operations: 7
+  tools_derived: 7
+  mcp_only: 0
+  rest_only: 0
+caveats:
+- Not a published server. Do not present this tool list as an OpenAPI Generator product.
+- download_generated_artifact returns a zip stream, which is a poor fit for an MCP text/JSON tool result
+  — a real server would need to return the download URL instead.
+- Generated artifacts are transient; an expired fileId returns 500, not 404.
+deployment:
+  mode: none
+  verified: derived
+  tools: 7
+  checked: '2026-08-12'
+  source: catalog MCP census

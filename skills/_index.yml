@@ -1,0 +1,40 @@
+generated: '2026-08-06'
+method: generated
+source: openapi/openapi-generator-online-swagger.json
+description: >-
+  Packaged Agent Skills for the OpenAPI Generator Online API. Every skill is
+  grounded in operationIds that exist in the provider's own Swagger 2.0 document
+  (openapi/openapi-generator-online-swagger.json) — no invented operations — and
+  carries the real runtime rules recorded in conventions/, errors/ and
+  authentication/.
+api: openapi-generator:openapi-generator
+base_url: https://api.openapi-generator.tech
+authentication: none
+skills:
+  - name: openapi-generator-generate-client
+    file: openapi-generator-generate-client.md
+    description: Generate a client library (SDK) from an OpenAPI document and download it.
+    operations: [clientOptions, getClientOptions, generateClient, downloadFile]
+  - name: openapi-generator-generate-server
+    file: openapi-generator-generate-server.md
+    description: Generate a server stub for a framework from an OpenAPI document and download it.
+    operations: [serverOptions, getServerOptions, generateServerForLanguage, downloadFile]
+  - name: openapi-generator-discover-generators
+    file: openapi-generator-discover-generators.md
+    description: Enumerate supported client and server generators and inspect each one's configuration options.
+    operations: [clientOptions, serverOptions, getClientOptions, getServerOptions]
+coverage:
+  spec_operations: 7
+  operations_covered: 7
+shared_rules:
+  - No authentication is required or accepted.
+  - Neither POST is idempotent — a retry generates a new artifact and a new download code.
+  - Generated artifacts are transient; an expired or malformed fileId returns 500, not 404.
+  - Errors use the Spring Boot default envelope, not RFC 9457.
+  - The hosted service reports version 7.12.0 against a 7.24.0 release line; prefer the CLI or build plugins for anything reproducible.
+provider_published_skills: none
+provider_published_skills_note: >-
+  No AGENTS.md, skills/ directory or agent-facing instruction file was found on
+  openapi-generator.tech or in the OpenAPITools/openapi-generator repository root
+  on 2026-08-06. These skills are API Evangelist generations, not provider
+  publications.

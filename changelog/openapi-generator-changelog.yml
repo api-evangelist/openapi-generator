@@ -1,0 +1,62 @@
+generated: '2026-08-06'
+method: searched
+source: https://github.com/OpenAPITools/openapi-generator/releases
+description: >-
+  OpenAPI Generator publishes its change log as GitHub Releases on the
+  OpenAPITools/openapi-generator repository — one dated release per version, each
+  carrying the generated release notes for that milestone. There is no separate
+  dated changelog page on openapi-generator.tech (/docs/releases returns 404).
+  The recent window below was read from the GitHub Releases API on 2026-08-06.
+  Note the two independent version lines: the generator itself (7.x, listed here)
+  and the npm CLI wrapper @openapitools/openapi-generator-cli (2.x).
+changelog_url: https://github.com/OpenAPITools/openapi-generator/releases
+scheme: semver
+scheme_note: >-
+  Major.minor.patch on the generator artifacts. Minor releases ship roughly every
+  4-8 weeks and may change generated output; breaking changes to templates and
+  generated code are called out per-generator in the release notes rather than in
+  a standing deprecation policy.
+current_version: 7.24.0
+current_version_date: '2026-07-20'
+maven_latest_at_probe: 7.14.0
+maven_latest_note: >-
+  Maven Central search returned 7.14.0 for org.openapitools artifacts at probe
+  time while GitHub Releases and PyPI were at 7.24.0 — the registry index lags.
+entries:
+  - version: 7.24.0
+    date: '2026-07-20'
+    url: https://github.com/OpenAPITools/openapi-generator/releases/tag/v7.24.0
+  - version: 7.23.0
+    date: '2026-06-08'
+    url: https://github.com/OpenAPITools/openapi-generator/releases/tag/v7.23.0
+  - version: 7.22.0
+    date: '2026-04-28'
+    url: https://github.com/OpenAPITools/openapi-generator/releases/tag/v7.22.0
+  - version: 7.21.0
+    date: '2026-03-24'
+    url: https://github.com/OpenAPITools/openapi-generator/releases/tag/v7.21.0
+  - version: 7.20.0
+    date: '2026-02-16'
+    url: https://github.com/OpenAPITools/openapi-generator/releases/tag/v7.20.0
+  - version: 7.19.0
+    date: '2026-01-19'
+    url: https://github.com/OpenAPITools/openapi-generator/releases/tag/v7.19.0
+  - version: 7.18.0
+    date: '2025-12-22'
+    url: https://github.com/OpenAPITools/openapi-generator/releases/tag/v7.18.0
+  - version: 7.17.0
+    date: '2025-10-29'
+    url: https://github.com/OpenAPITools/openapi-generator/releases/tag/v7.17.0
+entries_note: >-
+  Per-release breaking-change and addition detail was not captured: the GitHub
+  Releases API rate-limited the anonymous body fetch on 2026-08-06. Versions and
+  dates above are verbatim from the successful listing call. Follow each url for
+  the full notes.
+online_api_version: 7.12.0
+online_api_version_note: >-
+  The hosted Online Generator API reports info.version 7.12.0 in its own
+  /api-docs document, twelve minor versions behind the current release line —
+  the hosted service is not redeployed on every generator release.
+also_see:
+  - blog: https://openapi-generator.tech/blog
+  - roadmap: https://openapi-generator.tech/docs/roadmap

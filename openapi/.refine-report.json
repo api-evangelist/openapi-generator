@@ -1,0 +1,20 @@
+{
+  "provider": "openapi-generator",
+  "sources": [
+    "openapi-generator-clients-api-openapi.yml",
+    "openapi-generator-servers-api-openapi.yml"
+  ],
+  "outputs": [
+    "openapi-generator-clients-api-openapi.yml",
+    "openapi-generator-servers-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "openapi-generator-clients-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "openapi-generator-servers-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
+}

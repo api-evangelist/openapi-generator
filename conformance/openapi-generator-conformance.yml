@@ -1,0 +1,95 @@
+generated: '2026-08-06'
+method: derived
+source: openapi/openapi-generator-online-swagger.json + https://openapi-generator.tech/docs
+description: >-
+  Cross-cutting standards conformance for OpenAPI Generator. Two things are being
+  asserted about and must be kept apart: (1) what the TOOL consumes and produces —
+  it is one of the most widely deployed OpenAPI Specification implementations in
+  existence — and (2) what the hosted Online Generator API itself conforms to,
+  which is far less. Only the second column is what a consumer of
+  api.openapi-generator.tech gets.
+standards:
+  - id: openapi-3.1
+    conforms: true
+    scope: tool
+    evidence: >-
+      The generator parses and generates from OpenAPI 3.1 documents; 3.1 support
+      is documented across the generator docs and release notes.
+      https://openapi-generator.tech/docs/generators
+  - id: openapi-3.0
+    conforms: true
+    scope: tool
+    evidence: 'Primary supported input version. https://openapi-generator.tech/docs/usage'
+  - id: swagger-2.0
+    conforms: true
+    scope: tool+api
+    evidence: >-
+      The tool accepts OpenAPI/Swagger 2.0 input (the project README states "v2,
+      v3"), and the hosted API describes ITSELF with a Swagger 2.0 document at
+      https://api.openapi-generator.tech/api-docs (swagger: "2.0").
+  - id: openapi-3.x-self-description
+    conforms: false
+    scope: api
+    evidence: >-
+      The hosted API's own contract is Swagger 2.0, not OpenAPI 3.x — the
+      canonical OpenAPI tooling project does not describe its own API in the
+      current version of the specification it implements.
+  - id: json-schema
+    conforms: true
+    scope: tool
+    evidence: >-
+      Model generation is driven by JSON Schema constructs in the input document;
+      generators map schema keywords to language types.
+  - id: oauth2
+    conforms: false
+    scope: api
+    evidence: >-
+      No securityDefinitions of type oauth2 in the published spec; no
+      /.well-known/oauth-authorization-server (404 on both hosts, probed
+      2026-08-06). Note the TOOL generates OAuth2-aware clients from specs that
+      declare it — the API itself uses none.
+  - id: oidc
+    conforms: false
+    scope: api
+    evidence: '/.well-known/openid-configuration returned 404 on openapi-generator.tech and api.openapi-generator.tech (probed 2026-08-06).'
+  - id: rfc9457
+    conforms: false
+    scope: api
+    evidence: >-
+      Errors return the Spring Boot default envelope
+      {timestamp,status,error,path} as application/json, not
+      application/problem+json. See errors/openapi-generator-problem-types.yml.
+  - id: rfc9116-security-txt
+    conforms: false
+    scope: api
+    evidence: '/.well-known/security.txt returned 404 on both hosts (probed 2026-08-06).'
+  - id: rfc8594-sunset
+    conforms: false
+    scope: api
+    evidence: 'No Sunset or Deprecation header and no deprecation policy published. See lifecycle/openapi-generator-lifecycle.yml.'
+  - id: pagination
+    conforms: false
+    scope: api
+    evidence: 'Both collection endpoints return complete unpaginated arrays. See conventions/openapi-generator-conventions.yml.'
+  - id: idempotency
+    conforms: false
+    scope: api
+    evidence: 'No idempotency key on either POST; a repeat POST generates a new artifact and a new fileId.'
+  - id: json-api
+    conforms: false
+    scope: api
+    evidence: 'Plain JSON arrays and objects; no JSON:API document structure.'
+  - id: cors
+    conforms: true
+    scope: api
+    evidence: 'Vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers observed on a live 200 (probed 2026-08-06).'
+  - id: tls-1.3
+    conforms: true
+    scope: api
+    evidence: 'TLSv1.3 negotiated on both hosts. See security/openapi-generator-domain-security.yml.'
+compliance_certifications: none
+compliance_note: >-
+  This is a volunteer-governed Apache-2.0 open-source project. It publishes no
+  SOC 2, ISO 27001, PCI, HIPAA or FedRAMP attestation and no trust center, and no
+  such claim should be inferred. probe-security-programs.py returned vdp=none
+  trust=none on 2026-08-06.

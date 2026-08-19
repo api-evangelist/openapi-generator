@@ -1,0 +1,90 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the OpenAPI Generator Online API
+  version: 1.0.0
+x-provenance:
+  generated: '2026-08-06'
+  method: generated
+  source: openapi/openapi-generator-online-swagger.json
+  description: >-
+    Non-destructive enhancements the API Evangelist enrichment pipeline derived
+    for the OpenAPI Generator Online API. The underlying document is the
+    provider's own Swagger 2.0 file, saved verbatim and never mutated. Every
+    action below adds context we verified on 2026-08-06 (host/scheme, the real
+    error envelope, the undeclared 500, tag descriptions) — nothing here invents
+    behaviour the service does not have.
+extends: ../openapi/openapi-generator-online-swagger.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-provider: openapi-generator
+      x-apievangelist-note: >-
+        Hosted convenience service for the OpenAPI Generator project. The
+        deployed build reports 7.12.0 while the current generator release line is
+        7.24.0 — a client should not assume the hosted service matches the CLI.
+      x-source-contract: https://api.openapi-generator.tech/api-docs
+      x-contract-version: swagger-2.0
+      x-contract-version-note: >-
+        The canonical OpenAPI tooling project describes its own API in Swagger
+        2.0 rather than OpenAPI 3.x.
+  - target: $
+    update:
+      schemes:
+        - https
+      x-transport:
+        http_version: h2 (HTTP/3 advertised via alt-svc)
+        tls: TLSv1.3
+        edge: Cloudflare
+      x-authentication: none
+      x-rate-limit-signalling: none
+      x-idempotency: none
+      x-pagination: none
+      x-error-format: spring-boot-default
+  - target: $.tags
+    update:
+      - name: clients
+        description: Client-library generation — list generators, inspect their options, generate a client.
+      - name: servers
+        description: Server-stub generation — list frameworks, inspect their options, generate a stub.
+  - target: $.definitions.ResponseCode
+    update:
+      x-lifetime: transient
+      x-note: >-
+        The `link` example in the published document is still
+        http://localhost:8080/... The deployed service returns its own host.
+        Download promptly — an unknown or expired code returns 500.
+  - target: $.definitions.PredicateOfURL
+    update:
+      x-modelling-gap: >-
+        Declared as an object with no properties, so a generated client cannot
+        construct a meaningful urlMatcher.
+  - target: $.definitions.AuthorizationValue
+    update:
+      x-security-note: >-
+        This credential is forwarded by the service when fetching a protected
+        openAPIUrl. Sending it means handing a third-party secret to a public
+        unauthenticated endpoint. Prefer the CLI for specs that require
+        credentials to retrieve.
+  - target: $.paths['/api/gen/download/{fileId}'].get.responses
+    update:
+      '500':
+        description: >-
+          Undeclared in the provider document but observed live on 2026-08-06 —
+          a malformed or expired fileId returns 500, not 404. Body is the Spring
+          Boot default error envelope.
+  - target: $.paths['/api/gen/clients'].get
+    update:
+      x-returns-count-at-probe: 84
+      x-paginated: false
+  - target: $.paths['/api/gen/servers'].get
+    update:
+      x-returns-count-at-probe: 65
+      x-paginated: false
+  - target: $.paths['/api/gen/clients/{language}'].post
+    update:
+      x-idempotent: false
+      x-idempotency-note: A repeated POST generates a new artifact and a new download code; retries are not safe against duplicate generation.
+  - target: $.paths['/api/gen/servers/{framework}'].post
+    update:
+      x-idempotent: false
+      x-idempotency-note: A repeated POST generates a new artifact and a new download code; retries are not safe against duplicate generation.

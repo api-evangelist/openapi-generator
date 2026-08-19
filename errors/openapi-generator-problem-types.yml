@@ -1,0 +1,65 @@
+generated: '2026-08-06'
+method: derived
+source: openapi/openapi-generator-online-swagger.json + live probes of https://api.openapi-generator.tech
+description: >-
+  Error catalog for the hosted OpenAPI Generator Online API, derived from the
+  4xx/5xx responses declared in the service's own Swagger 2.0 document and from
+  error bodies observed live on 2026-08-06. The spec declares status codes with
+  description strings only — no response schema is attached to any error — so the
+  envelope below was captured from real responses rather than read out of the
+  contract. The project publishes no error-reference page.
+format: spring-boot-default
+rfc9457: false
+content_type: application/json
+envelope:
+  timestamp: 'ISO 8601 server timestamp'
+  status: 'integer HTTP status'
+  error: 'HTTP reason phrase'
+  path: 'request path'
+docs_error_reference: null
+problem_types:
+  - status: 401
+    title: Unauthorized
+    declared_on: [clientOptions, getClientOptions, generateClient, downloadFile, serverOptions, getServerOptions, generateServerForLanguage]
+    source: spec
+    remediation: >-
+      Not reachable in practice — the service declares no securityDefinitions and
+      answers anonymously. This is a Spring Boot framework default response
+      enumerated on every operation, not an implemented auth failure.
+  - status: 403
+    title: Forbidden
+    declared_on: [clientOptions, getClientOptions, generateClient, downloadFile, serverOptions, getServerOptions, generateServerForLanguage]
+    source: spec
+    remediation: >-
+      Framework default, same as 401. No authorization layer is implemented on
+      this API.
+  - status: 404
+    title: Not Found
+    declared_on: [clientOptions, getClientOptions, generateClient, downloadFile, serverOptions, getServerOptions, generateServerForLanguage]
+    source: spec+observed
+    observed: '{"timestamp":"2026-08-06T18:33:42.150Z","status":404,"error":"Not Found","path":"/api/gen/clients/notalanguage"}'
+    remediation: >-
+      Returned for an unknown route, an unknown {language} on
+      GET /api/gen/clients/{language}, or an unknown {framework} on
+      GET /api/gen/servers/{framework}. Call GET /api/gen/clients or
+      GET /api/gen/servers first and use a name from that array.
+  - status: 500
+    title: Internal Server Error
+    declared_on: []
+    source: observed
+    observed: '{"timestamp":"2026-08-06T18:29:33.875Z","status":500,"error":"Internal Server Error","path":"/api/gen/download/x"}'
+    remediation: >-
+      Undeclared in the spec but returned in practice — GET
+      /api/gen/download/{fileId} answers 500, not 404, for a malformed or
+      expired fileId. Use only a fileId returned in the `code` field of a
+      generate response, and download promptly; generated artifacts are
+      transient.
+success_codes:
+  - status: 200
+    note: Successful operation on all seven operations.
+  - status: 201
+    note: 'Declared as "Created" on generateClient and generateServerForLanguage; the live service returns 200 with a ResponseCode body.'
+gaps:
+  - Error responses in the published spec carry no schema, so a generated client cannot type the error body.
+  - No application-level error code or machine-readable reason is emitted — only the HTTP reason phrase.
+  - The 500 on an unknown download fileId is undeclared and is the wrong status for a missing resource.

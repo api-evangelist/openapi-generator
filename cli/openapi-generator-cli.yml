@@ -1,0 +1,61 @@
+generated: '2026-08-06'
+method: searched
+source: https://openapi-generator.tech/docs/usage
+description: >-
+  The openapi-generator-cli command surface, captured verbatim from the project's
+  own Usage and CLI Installation pages. Unusually for this catalog, the CLI is the
+  primary product and the hosted REST API (api.openapi-generator.tech) is the
+  secondary surface — the same options apply across CLI, Maven/Gradle plugins and
+  Online generation. Distribution packages are catalogued in
+  packages/openapi-generator-packages.yml.
+docs: https://openapi-generator.tech/docs/usage
+install_docs: https://openapi-generator.tech/docs/installation
+repo: https://github.com/OpenAPITools/openapi-generator
+binary_names:
+  - openapi-generator-cli   # npm, scoop, pypi
+  - openapi-generator       # homebrew
+install:
+  npm: npm install @openapitools/openapi-generator-cli -g
+  npm_dev_dependency: npm install @openapitools/openapi-generator-cli -D
+  homebrew: brew install openapi-generator
+  scoop: scoop install openapi-generator-cli
+  pip: pip install openapi-generator-cli
+  pip_bundled_jdk: pip install openapi-generator-cli[jdk4py]
+  docker: docker run --rm -v ${PWD}:/local openapitools/openapi-generator-cli generate -i /local/petstore.yaml -g go -o /local/out/go
+  jar: java -jar openapi-generator-cli.jar help
+  jbang: jbang --java 11 org.openapitools:openapi-generator-cli:LATEST help
+  bash_launcher: bin/utils/openapi-generator-cli.sh
+runtime_requirement: Java 11 or newer (the npm, pip and scoop wrappers shell out to a JVM; the Docker image bundles one).
+commands:
+  generation:
+    - {name: generate, description: "Generate code with the specified generator (-i input spec, -g generator name, -o output dir)."}
+    - {name: batch, description: "Generate code in batch via external configs."}
+  discovery:
+    - {name: list, description: "List the available generators; -s/--short for CSV output, -i/--include to filter by stability index (all,beta,stable,experimental,deprecated — deprecated excluded by default)."}
+    - {name: config-help, description: "Show config options for a chosen generator; -g generator name, -f text|markdown|yamlsample, --full-details, --feature-set, --import-mappings, --instantiation-types, --language-specific-primitive, --reserved-words."}
+  validation:
+    - {name: validate, description: "Validate an OpenAPI specification."}
+  authoring:
+    - {name: author, description: "Utilities for authoring generators or customizing templates."}
+    - {name: meta, description: "MetaGenerator — scaffold a new template set and configuration for Codegen, based on the language specified."}
+  meta:
+    - {name: version, description: "Show version information used in tooling; --full for full details, --sha for the git commit SHA."}
+    - {name: help, description: "Display help information; `help <command>` for a specific command."}
+key_flows:
+  - name: Generate a client from a local spec
+    steps:
+      - openapi-generator-cli list -s
+      - openapi-generator-cli config-help -g ruby
+      - openapi-generator-cli generate -i petstore.yaml -g ruby -o /tmp/test/
+  - name: Validate before generating
+    steps:
+      - openapi-generator-cli validate -i petstore.yaml
+      - openapi-generator-cli generate -i petstore.yaml -g go -o ./out/go
+  - name: Pin a generator version (npm wrapper)
+    steps:
+      - openapi-generator-cli version-manager set 7.24.0
+      - npx @openapitools/openapi-generator-cli generate -i petstore.yaml -g ruby -o /tmp/test/
+build_tool_equivalents:
+  - {tool: maven, artifact: 'org.openapitools:openapi-generator-maven-plugin', docs: https://openapi-generator.tech/docs/plugins}
+  - {tool: gradle, artifact: 'org.openapitools:openapi-generator-gradle-plugin', docs: https://openapi-generator.tech/docs/plugins}
+  - {tool: sbt, artifact: 'org.openapitools:sbt-openapi-generator', docs: https://openapi-generator.tech/docs/plugins}

@@ -4,7 +4,10 @@ schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main
 provider: OpenAPI Generator
 providerId: openapi-generator
 created: '2026-05-04'
-modified: '2026-05-04'
+modified: '2026-08-06'
+generated: '2026-08-06'
+method: probed
+source: live probe of https://api.openapi-generator.tech/api/gen/clients + https://openapi-generator.tech/docs
 tags:
   - Code Generation
   - Documentation
@@ -12,78 +15,36 @@ tags:
   - OpenAPI
   - SDK
   - Rate Limiting
-  - Quotas
-  - Throttling
-description: Machine-readable rate limit definitions for the OpenAPI Generator API surface. Captures per-tier
-  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
-  be replaced with published provider limits.
-headers:
-  limit: X-RateLimit-Limit
-  remaining: X-RateLimit-Remaining
-  reset: X-RateLimit-Reset
-  retryAfter: Retry-After
-  policy: RateLimit-Policy
-responseCodes:
-  throttled: 429
-  quotaExceeded: 429
-  serviceUnavailable: 503
-limits:
-  - tier: free
-    name: Free Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 10
-    burst: 20
-    timeFrame: minute
-    applies:
-      - OpenAPI Generator
-  - tier: free
-    name: Free Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 1000
-    timeFrame: month
-    applies:
-      - OpenAPI Generator
-  - tier: professional
-    name: Professional Tier Default
-    scope: api-key
-    metric: requests_per_minute
-    limit: 100
-    burst: 200
-    timeFrame: minute
-    applies:
-      - OpenAPI Generator
-  - tier: professional
-    name: Professional Tier Monthly Quota
-    scope: api-key
-    metric: requests_per_month
-    limit: 100000
-    timeFrame: month
-    applies:
-      - OpenAPI Generator
-  - tier: enterprise
-    name: Enterprise Negotiated Limit
-    scope: contract
-    metric: requests_per_minute
-    limit: 1000
-    burst: 5000
-    timeFrame: minute
-    applies:
-      - OpenAPI Generator
-policies:
-  - name: Backoff Strategy
-    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
-      when present.
-  - name: Burst Handling
-    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
-      before throttling engages.
-  - name: Quota Reset
-    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
-      windows reset on a sliding-window basis.
-  - name: Fair Use
-    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
-      may be subject to fair-use throttling.
+description: >-
+  OpenAPI Generator publishes no rate limits for its hosted Online Generator API,
+  and the service signals none at runtime. This file previously carried scaffold
+  defaults — free/professional/enterprise tiers with per-minute and per-month
+  quotas keyed to an API key — that the provider has never published and that do
+  not exist: the API has no API keys and no tiers. Those fabricated values were
+  removed on 2026-08-06 and replaced with the probed result.
+published: false
+signalled: false
+headers: {}
+headers_note: >-
+  A live GET https://api.openapi-generator.tech/api/gen/clients on 2026-08-06
+  returned 200 with no RateLimit-Limit, RateLimit-Policy, X-RateLimit-*,
+  Retry-After or equivalent header. Response headers were date, content-type,
+  server (cloudflare), nel, vary, cf-cache-status, report-to, cf-ray, alt-svc.
+responseCodes: {}
+limits: []
+plans_note: >-
+  There are no tiers. The project is Apache-2.0 and free; there is no API key, no
+  sign-up, and no paid plan for the hosted generator.
+evidence:
+  - {url: 'https://api.openapi-generator.tech/api/gen/clients', http_status: 200, rate_limit_headers: none, fetched: '2026-08-06'}
+  - {url: 'https://openapi-generator.tech/docs/online', http_status: 200, documents_rate_limits: false, fetched: '2026-08-06'}
+consumer_guidance: >-
+  Because no limit is declared, none can be relied on. Any throttling in front of
+  api.openapi-generator.tech is Cloudflare edge behaviour, undeclared to clients
+  and subject to change without notice. Clients should back off on 429 or 5xx
+  regardless, and anything that must be reliable should run the CLI, Docker image
+  or build-tool plugin locally instead of calling the hosted service. See
+  cli/openapi-generator-cli.yml.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -1,0 +1,35 @@
+generated: '2026-08-06'
+method: derived
+source: openapi/openapi-generator-online-swagger.json + live probe of https://api.openapi-generator.tech/api/gen/clients
+description: >-
+  Authentication profile for the hosted OpenAPI Generator Online API. The result
+  is an honest zero: the service is anonymous and open. derive-authentication.py
+  produced no profile because the Swagger 2.0 document declares no
+  securityDefinitions block at all, and a live unauthenticated GET returned 200,
+  confirming that this is genuinely an open API rather than a spec that merely
+  omits its scheme.
+surface: https://api.openapi-generator.tech
+spec: openapi/openapi-generator-online-swagger.json
+schemes: []
+scheme_count: 0
+default_security: none
+requires_authentication: false
+evidence:
+  - {check: securityDefinitions in spec, result: absent}
+  - {check: top-level security requirement in spec, result: absent}
+  - {check: per-operation security requirement, result: absent on all 7 operations}
+  - {url: 'https://api.openapi-generator.tech/api/gen/clients', method: GET, credentials: none, http_status: 200, fetched: '2026-08-06'}
+declared_error_codes_note: >-
+  Every operation declares 401 Unauthorized and 403 Forbidden. These are Spring
+  Boot framework defaults enumerated by the springfox/springdoc generator, not
+  evidence of an auth layer — no scheme exists to produce them.
+inbound_credentials_note: >-
+  The GeneratorInput request body carries an optional `authorizationValue`
+  object (keyName / type / value / urlMatcher). That credential is not for
+  authenticating to this API — it is passed THROUGH so the generator can fetch a
+  protected `openAPIUrl` on the caller's behalf. Callers should treat this as
+  sending a third-party secret to a public unauthenticated service over the open
+  internet, and prefer the CLI (cli/openapi-generator-cli.yml) for any spec that
+  requires credentials to retrieve.
+oauth_scopes: none
+docs: https://openapi-generator.tech/docs/online

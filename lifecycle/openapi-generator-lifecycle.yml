@@ -1,0 +1,59 @@
+generated: '2026-08-06'
+method: searched
+source: https://openapi-generator.tech/docs/roadmap
+description: >-
+  Versioning, deprecation and support posture for OpenAPI Generator, read from
+  the project's own docs and GitHub surface on 2026-08-06. This is a
+  community-governed open-source project with no commercial SLA; the lifecycle
+  signals it publishes are a public roadmap, a semantic version line, and a
+  per-generator stability index rather than an operational status page.
+versioning:
+  scheme: semver
+  current: 7.24.0
+  current_date: '2026-07-20'
+  cadence: 'roughly every 4-8 weeks (8 minor releases between 2025-10-29 and 2026-07-20)'
+  changelog: https://github.com/OpenAPITools/openapi-generator/releases
+  api_versioning: >-
+    The hosted Online Generator API is unversioned in its URL path
+    (/api/gen/...); the deployed build reports info.version 7.12.0 in
+    /api-docs.
+deprecation:
+  policy_url: null
+  policy_published: false
+  stability_index: https://openapi-generator.tech/docs/generators
+  stability_note: >-
+    Generators carry a stability index — stable, beta, experimental, deprecated —
+    surfaced by `openapi-generator-cli list --include all,deprecated`. Deprecated
+    generators are excluded from `list` output by default. This is a
+    generator-level deprecation signal, not an HTTP API deprecation policy.
+  sunset_header: false
+  deprecation_header: false
+  rfc8594: false
+support:
+  sla: none
+  sla_note: Community open-source project (Apache-2.0); no support SLA is published.
+  channels:
+    - {name: GitHub Issues, url: https://github.com/OpenAPITools/openapi-generator/issues}
+    - {name: Slack chat room, url: https://openapi-generator.tech/docs/faq}
+    - {name: Stack Overflow, url: https://stackoverflow.com/questions/tagged/openapi-generator}
+  contributing: https://openapi-generator.tech/docs/contributing
+status_page:
+  published: false
+  note: >-
+    No status page was found for openapi-generator.tech or
+    api.openapi-generator.tech. The hosted Online Generator API has no published
+    uptime commitment; the docs recommend the CLI/plugins for production use.
+roadmap:
+  published: true
+  url: https://openapi-generator.tech/docs/roadmap
+  note: Short-, medium- and long-term goals, explicitly framed as goals and not commitments.
+governance:
+  model: community
+  body: OpenAPI Generator core team
+  url: https://openapi-generator.tech/team
+  license: Apache-2.0
+  origin: Fork of Swagger Codegen (2018) by 40+ of its top contributors and template creators.
+deprecated_operations: []
+deprecated_operations_note: >-
+  No operation in openapi/openapi-generator-online-swagger.json carries
+  deprecated: true.

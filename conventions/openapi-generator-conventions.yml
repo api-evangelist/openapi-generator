@@ -1,0 +1,92 @@
+generated: '2026-08-06'
+method: derived
+source: openapi/openapi-generator-online-swagger.json + live probes of https://api.openapi-generator.tech
+description: >-
+  Cross-cutting runtime semantics for the hosted OpenAPI Generator Online API.
+  Derived from the Swagger 2.0 document the service publishes at /api-docs and
+  from live requests made on 2026-08-06. This is a deliberately minimal
+  five-path service: it has no authentication, no pagination, no idempotency
+  layer and no rate-limit signalling. Recorded honestly rather than left blank —
+  the absences are the finding.
+surface: https://api.openapi-generator.tech
+spec: openapi/openapi-generator-online-swagger.json
+authentication:
+  style: none
+  detail: >-
+    The Swagger document declares no securityDefinitions and no security
+    requirement, and GET /api/gen/clients returns 200 anonymously. The 401 and
+    403 responses documented on every operation are Spring Boot framework
+    defaults, not an implemented auth scheme. See
+    authentication/openapi-generator-authentication.yml.
+  api_keys: false
+  oauth2: false
+idempotency:
+  supported: false
+  detail: >-
+    No idempotency key header is defined or documented. POST
+    /api/gen/clients/{language} and POST /api/gen/servers/{framework} each
+    create a new pre-generated artifact and return a fresh fileId, so a repeated
+    POST produces a new download code rather than replaying the first result.
+    Retries are not safe against duplicate generation.
+pagination:
+  supported: false
+  detail: >-
+    No collection endpoint paginates. GET /api/gen/clients and
+    GET /api/gen/servers each return a complete JSON array of generator names in
+    a single response (84 clients, 65 servers at probe time).
+field_expansion:
+  supported: false
+metadata:
+  supported: false
+request_tracing:
+  request_id_header: null
+  detail: >-
+    No request-id or correlation header is returned. Responses carry Cloudflare
+    edge headers (cf-ray, cf-cache-status) only; cf-ray is an edge trace
+    identifier, not an application request id.
+versioning:
+  style: none-in-path
+  detail: >-
+    Paths are unversioned (/api/gen/...). The deployed build reports
+    info.version 7.12.0 inside /api-docs, which is the only version signal
+    available to a client. See lifecycle/openapi-generator-lifecycle.yml.
+error_envelope:
+  format: spring-boot-default
+  rfc9457: false
+  content_type: application/json
+  fields:
+    - {name: timestamp, type: string, format: date-time, description: 'Server time the error was produced, e.g. 2026-08-06T18:33:42.150Z.'}
+    - {name: status, type: integer, description: HTTP status code repeated in the body.}
+    - {name: error, type: string, description: 'HTTP reason phrase, e.g. "Not Found", "Internal Server Error".'}
+    - {name: path, type: string, description: The request path that produced the error.}
+  observed_example: '{"timestamp":"2026-08-06T18:33:42.150Z","status":404,"error":"Not Found","path":"/api/gen/clients/notalanguage"}'
+  detail: >-
+    The envelope is the Spring Boot default error body, not application-authored.
+    It carries no machine-readable error code and no remediation field. The
+    published Swagger document does not describe this shape at all — every 4xx
+    response in the spec has a description string and no schema. See
+    errors/openapi-generator-problem-types.yml.
+rate_limiting:
+  signalled: false
+  detail: >-
+    No RateLimit-*, X-RateLimit-* or Retry-After header was present on a 200
+    response probed on 2026-08-06, and no rate limit is documented. Any
+    throttling in front of the service is Cloudflare edge behaviour, undeclared
+    to clients. See rate-limits/openapi-generator-rate-limits.yml.
+content_negotiation:
+  request: application/json (POST bodies)
+  response: 'application/json on the option endpoints; */* on generate and download (the download returns a zip stream).'
+cors:
+  enabled: true
+  detail: 'Responses carry Vary: Origin, Access-Control-Request-Method, Access-Control-Request-Headers, indicating CORS handling at the application layer.'
+transport:
+  http_version: HTTP/2 (h2), HTTP/3 advertised via alt-svc
+  tls: TLSv1.3
+  hsts: false
+  edge: Cloudflare
+cross_links:
+  errors: errors/openapi-generator-problem-types.yml
+  lifecycle: lifecycle/openapi-generator-lifecycle.yml
+  authentication: authentication/openapi-generator-authentication.yml
+  rate_limits: rate-limits/openapi-generator-rate-limits.yml
+  data_model: data-model/openapi-generator-data-model.yml
