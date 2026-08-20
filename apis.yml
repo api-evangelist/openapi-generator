@@ -37,6 +37,17 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/openapi-ge
 tags:
   - Code Generation
   - Documentation
+  - Open-Source
+  - OpenAPI
+  - SDK
+  - API Tooling
+  - Developer Tools
+  - Swagger
+  - Server Stubs
+  - Codegen
+tags_raw:
+  - Code Generation
+  - Documentation
   - Open Source
   - OpenAPI
   - SDK
@@ -57,6 +68,8 @@ apis:
   humanURL: https://openapi-generator.tech/docs/online
   baseURL: https://api.openapi-generator.tech
   tags:
+  - Clients
+  tags_raw:
   - clients
   properties:
   - type: OpenAPI
@@ -83,6 +96,8 @@ apis:
   humanURL: https://openapi-generator.tech/docs/online
   baseURL: https://api.openapi-generator.tech
   tags:
+  - Servers
+  tags_raw:
   - servers
   properties:
   - type: OpenAPI
