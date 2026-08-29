@@ -13,6 +13,19 @@ description: >-
   generation over HTTP, anonymously and without a key, across 84 client
   generators and 65 server frameworks.
 type: Index
+deliveryModel:
+  model: unknown
+  open_source: unknown
+  commercial: true
+  callable_host: true
+  label: Delivery model not determined — needs a product licence on record
+  confidence: low
+  source:
+  - openapi
+  - pricing
+  - repository-unlicensed
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: free
   onboarding: none
@@ -119,6 +132,12 @@ apis:
   - type: GitHubRepository
     url: https://github.com/OpenAPITools/openapi-generator
 common:
+  - type: Releases
+    url: https://github.com/OpenAPITools/openapi-generator/releases
+  - type: CodeOfConduct
+    url: https://github.com/OpenAPITools/openapi-generator/blob/master/CODE_OF_CONDUCT.md
+  - type: ContributionGuide
+    url: https://github.com/OpenAPITools/openapi-generator/blob/master/CONTRIBUTING.md
   - type: Overlay
     url: overlays/openapi-generator-online-overlay.yaml
   - type: DomainSecurity
