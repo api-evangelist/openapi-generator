@@ -44,7 +44,7 @@ accessModel:
     Apache-2.0 project with no commercial tier, no sign-up and no API key; the
     hosted generator answers anonymously. The prior derived value (freemium) came
     from a scaffold plans file carrying invented paid tiers, corrected 2026-08-06.
-position: Consumer
+position: Consuming
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/openapi-generator.png
 tags:
@@ -152,8 +152,9 @@ common:
     url: lifecycle/openapi-generator-lifecycle.yml
   - type: Conformance
     url: conformance/openapi-generator-conformance.yml
-  - type: MCPServer
+  - type: X-MCPServerCandidate
     url: mcp/openapi-generator-mcp.yml
+    note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
   - type: AgentSkill
     url: skills/_index.yml
   - type: LLMsTxt
