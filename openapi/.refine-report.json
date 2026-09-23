@@ -1,8 +1,7 @@
 {
   "provider": "openapi-generator",
   "sources": [
-    "openapi-generator-clients-api-openapi.yml",
-    "openapi-generator-servers-api-openapi.yml"
+    "_original/openapi-generator-online-swagger.json"
   ],
   "outputs": [
     "openapi-generator-clients-api-openapi.yml",
@@ -12,9 +11,14 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "openapi-generator-clients-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
-    "openapi-generator-servers-api-openapi.yml: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "openapi-generator-online-swagger.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "openapi-generator-online-swagger.json: declared missing tag: clients",
+    "openapi-generator-online-swagger.json: declared missing tag: servers",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "openapi-generator-clients-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "openapi-generator-servers-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
