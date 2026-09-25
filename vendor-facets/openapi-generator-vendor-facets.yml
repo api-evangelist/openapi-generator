@@ -1,0 +1,188 @@
+# Vendor facets — OpenAPI Generator. The open-source, template-driven generator (79 clients, 66
+# servers, 9 docs, 8 schema generators). The headline: SDK pointers and a static reference, with
+# a beta Postman collection generator at the derived rate. Its schema generators can emit a
+# GraphQL schema or protobuf from an OpenAPI, which would misdescribe a REST API and earns nothing.
+# It leaves no fingerprint a catalog can rely on.
+vendor: openapi-generator
+name: OpenAPI Generator
+website: https://openapi-generator.tech
+areas:
+- sdk-generation
+registry_keys: []
+rubric_schema_version: 0.22.0
+generated: '2026-09-25'
+features_refreshed: '2026-09-25'
+basis: capability
+summary: >-
+  OpenAPI Generator is free and open source, and its lift is only as good as what the provider publishes
+  and declares. Client SDKs in any number of languages move the SDK pointers. The html and markdown documentation
+  generators can back an API reference pointer. The beta postman-collection generator earns the derived
+  Postman credit. It has no MCP, CLI, llms.txt or Agent Skill output, and it does not touch the contract's
+  content. Many of its users are API consumers generating clients for their own apps, so none of that
+  reaches the provider's surface.
+features:
+- id: client-generators
+  name: Client SDK generators
+  description: 79 client generators across languages and HTTP libraries, driven by Mustache templates.
+  source: https://openapi-generator.tech/docs/generators
+  tier: open-source
+- id: docs-generators
+  name: Documentation generators
+  description: >-
+    Nine generators (html, html2, dynamic-html, asciidoc, markdown and others) that render a static reference
+    from the OpenAPI.
+  source: https://openapi-generator.tech/docs/generators
+  tier: open-source
+- id: postman-generator
+  name: postman-collection generator (beta)
+  description: A schema generator that emits a Postman collection from the OpenAPI.
+  source: https://openapi-generator.tech/docs/generators
+  tier: open-source
+- id: schema-generators
+  name: Schema generators
+  description: Emits openapi, openapi-yaml, graphql-schema and protobuf-schema from an OpenAPI input.
+  source: https://openapi-generator.tech/docs/generators
+  tier: open-source
+- id: server-generators
+  name: Server stub generators
+  description: 66 server stub generators for implementing an API from its contract.
+  source: https://openapi-generator.tech/docs/generators
+  tier: open-source
+- id: build-integrations
+  name: CLI, Maven, Gradle, Docker, npm distribution
+  description: Runs as a CLI (Homebrew, npm, Docker) and as Maven, Gradle, Bazel and SBT plugins.
+  source: https://openapi-generator.tech/
+  tier: open-source
+maps:
+- feature: client-generators
+  check: sdk_count_1
+  layer: composite
+  provider_must: Publish a generated client as a maintained package and declare it as an SDK entry.
+  catalog_pass_rate: 0.148
+  facet: developer_ergonomics
+  points: 3
+  baseline_pass_rate: 0.413
+- feature: client-generators
+  check: sdk_count_3
+  layer: composite
+  provider_must: Publish and declare three or more language clients.
+  catalog_pass_rate: 0.018
+  facet: developer_ergonomics
+  points: 4
+  baseline_pass_rate: 0.043
+- feature: docs-generators
+  check: api_reference_present
+  layer: composite
+  provider_must: Host the generated reference and declare it as an APIReference entry.
+  catalog_pass_rate: 0.222
+  facet: developer_ergonomics
+  points: 3
+  baseline_pass_rate: 0.942
+  saturated: true
+  saturated_note: >-
+    94% of providers with a contract, docs and a reference already earn this; the vendor cannot move it
+    for most of its buyers.
+- feature: postman-generator
+  check: postman_present
+  layer: composite
+  credit: 0.25
+  provider_must: Publish the generated collection and declare it as a Postman entry.
+  note: >-
+    A collection derived mechanically from the OpenAPI is the derived authorship class. The generator
+    is beta.
+  catalog_pass_rate: 0.018
+  facet: developer_ergonomics
+  points: 2
+  baseline_pass_rate: 0.121
+earns_nothing:
+- feature: schema-generators
+  check: graphql_sdl_present
+  why: >-
+    A GraphQL SDL derived from a REST OpenAPI describes an interface the API does not serve. Publishing
+    it would misdescribe the API; it is not a GraphQL contract.
+- feature: schema-generators
+  check: openapi_3_1
+  why: >-
+    The openapi and openapi-yaml generators re-serialise the input. They do not change its version or
+    its content.
+- feature: server-generators
+  check: contract_present
+  why: Server stubs are generated from a contract that already exists. They add no contract.
+out_of_reach:
+  checks:
+  - cli_present
+  - mcp_server
+  - llms_txt_published
+  - agent_skills
+  - agent_skill_present
+  - overlay_published
+  - examples_present
+  - idempotency
+  - error_semantics
+  note: >-
+    The generator list has no MCP, CLI-for-the-API, llms.txt, skill or overlay output, and it never edits
+    the contract.
+unscored_practice:
+- feature: server-generators
+  why: Contract-first server implementation is a real design practice that no check reads.
+surface:
+  developer_ergonomics:
+    reachable: 10.5
+    total: 42
+  agent_readiness:
+    reachable: 0
+    total: 139
+hard_rule: >-
+  A model, not a score. Adopting this vendor changes a provider's Kin Score only when the provider publishes
+  the resulting artifacts on its own surface; nothing here writes a score, and no sponsorship or partnership
+  can.
+method: searched
+source:
+- https://openapi-generator.tech/
+- https://openapi-generator.tech/docs/generators
+measured:
+  cohort:
+    method: vendors-catalog.json detections (CNAME / header / URL shape / markup), never a name match
+    detected: 0
+    in_baseline: 0
+  control:
+    basis: providers earning contract_present + documentation_present + api_reference_present, minus the
+      cohort
+    n: 5216
+  metric: >-
+    cohort_pct / control_pct = mean share of the check's points earned (derived and platform credit weighted),
+    x100
+  measured_on: '2026-09-25'
+  status: 'not measurable: 0 detected customers clear the baseline (need 20)'
+simulation:
+  simulated_on: '2026-09-25'
+  rubric: 0.23.0
+  population: providers publishing a contract (contract_present earned), replayable exactly
+  providers: 8977
+  providers_unreplayable: 987
+  providers_moved: 8846
+  conditional_rows: excluded (they depend on what the API already does)
+  composite_lift:
+    median: 3.6
+    p75: 5.0
+    p90: 5.0
+    max: 5.1
+    mean_among_movers: 3.6
+  agent_readiness_lift:
+    median: 0.0
+    p75: 0.0
+    p90: 0.0
+    max: 0.0
+    mean_among_movers: 0.0
+  facet_lift_median_among_movers:
+    developer_ergonomics: 17.9
+  composite_band_moves:
+    thin -> developing: 1290
+    developing -> strong: 605
+    emerging -> thin: 286
+    strong -> exemplar: 156
+    minimal -> emerging: 3
+  agent_readiness_band_moves: {}
+  method: >-
+    each provider's own kin/checks file, the vendor's maps at their stated credit, the scorer's composite
+    formula; from -> to, nothing written

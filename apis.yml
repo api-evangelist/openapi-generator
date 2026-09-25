@@ -132,6 +132,8 @@ apis:
   - type: GitHubRepository
     url: https://github.com/OpenAPITools/openapi-generator
 common:
+  - type: VendorFacets
+    url: vendor-facets/openapi-generator-vendor-facets.yml
   - type: Releases
     url: https://github.com/OpenAPITools/openapi-generator/releases
   - type: CodeOfConduct
