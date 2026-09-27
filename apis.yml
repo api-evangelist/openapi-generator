@@ -14,17 +14,22 @@ description: >-
   generators and 65 server frameworks.
 type: Index
 deliveryModel:
-  model: unknown
-  open_source: unknown
+  model: open-core
+  license: Apache-2.0
+  license_evidence:
+    repo: openapitools/openapi-generator
+    spdx: Apache-2.0
+    stars: 26762
+  open_source: true
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
-  confidence: low
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: medium
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-license
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: free
@@ -50,7 +55,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/openapi-ge
 tags:
   - Code Generation
   - Documentation
-  - Open-Source
+  - Open Source
   - OpenAPI
   - SDK
   - API Tooling
@@ -58,6 +63,7 @@ tags:
   - Swagger
   - Server Stubs
   - Codegen
+  - SDK Generation
 tags_raw:
   - Code Generation
   - Documentation
@@ -69,6 +75,8 @@ tags_raw:
   - Swagger
   - Server Stubs
   - Codegen
+  - Open-Source
+  - SDK Generation
 url: >-
   https://raw.githubusercontent.com/api-evangelist/openapi-generator/refs/heads/main/apis.yml
 created: '2026-03-16'
