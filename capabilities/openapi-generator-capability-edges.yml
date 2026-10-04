@@ -1,0 +1,25 @@
+slug: openapi-generator
+provider: OpenAPI Generator
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Clients
+  spec_file: openapi-generator-clients-api-openapi.yml
+  capability_id: BC-4270.20
+  capability_id_l1: BC-4270
+  capability_name: SDK & Client Library Management
+  confidence: 0.85
+  evidence: POST /api/gen/clients/{language} generateClient 'Generates a client library'; GET /api/gen/clients
+    'Gets languages supported by the client generator'
+  reason: The operations generate client libraries/SDKs per target language from an OpenAPI spec, which
+    is precisely SDK & client library generation and language coverage.

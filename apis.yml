@@ -140,6 +140,9 @@ apis:
   - type: GitHubRepository
     url: https://github.com/OpenAPITools/openapi-generator
 common:
+  - type: CapabilityMap
+    url: capabilities/openapi-generator-capability-edges.yml
+    name: OpenAPI Generator Business Capability Map
   - type: VendorFacets
     url: vendor-facets/openapi-generator-vendor-facets.yml
   - type: Releases
