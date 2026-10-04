@@ -195,36 +195,6 @@ components:
         value:
           type: string
       title: AuthorizationValue
-    ResponseCode:
-      type: object
-      properties:
-        code:
-          type: string
-          example: d40029be-eda6-4d62-b1ef-d05e2e91a72a
-          description: File download code
-        link:
-          type: string
-          example: http://localhost:8080/api/gen/download/d40029be-eda6-4d62-b1ef-d05e2e91a72a
-          description: URL for fetching the generated client
-      title: ResponseCode
-    CliOption:
-      type: object
-      properties:
-        default:
-          type: string
-        description:
-          type: string
-        enum:
-          type: object
-          additionalProperties:
-            type: string
-        opt:
-          type: string
-        optValue:
-          type: string
-        type:
-          type: string
-      title: CliOption
     GeneratorInput:
       type: object
       properties:
@@ -245,6 +215,36 @@ components:
         spec:
           type: object
       title: GeneratorInput
+    CliOption:
+      type: object
+      properties:
+        default:
+          type: string
+        description:
+          type: string
+        enum:
+          type: object
+          additionalProperties:
+            type: string
+        opt:
+          type: string
+        optValue:
+          type: string
+        type:
+          type: string
+      title: CliOption
+    ResponseCode:
+      type: object
+      properties:
+        code:
+          type: string
+          example: d40029be-eda6-4d62-b1ef-d05e2e91a72a
+          description: File download code
+        link:
+          type: string
+          example: http://localhost:8080/api/gen/download/d40029be-eda6-4d62-b1ef-d05e2e91a72a
+          description: URL for fetching the generated client
+      title: ResponseCode
     PredicateOfURL:
       type: object
       title: PredicateOfURL
