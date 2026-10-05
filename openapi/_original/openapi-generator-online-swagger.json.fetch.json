@@ -1,0 +1,12 @@
+{
+ "url": "http://api.openapi-generator.tech/api-docs",
+ "requested_url": "http://api.openapi-generator.tech/api-docs",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 7905,
+ "sha256": "9e39276703d814c01a6791d0174481e6aab0a9639c98d5e2c976240633c45887",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "byte-identical",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the archived file is byte-identical to what the provider serves."
+}
