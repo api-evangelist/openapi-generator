@@ -59,6 +59,47 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-official-clis.py
   first_seen: '2026-10-20'
+- partner_name: APIs.guru OpenAPI Directory
+  partner: apis-guru
+  partner_match: register
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: third-party
+  evidence: https://apis.guru/
+  category: API definition directory listing (OpenAPI)
+  contract_reference:
+    register: APIs.guru OpenAPI Directory
+    spec_file: null
+    standard: APIs.guru OpenAPI Directory
+    role: listed-in-directory
+    directory_provider: openapi-generator.tech
+    matched_domain: openapi-generator.tech
+    matched_by: domain
+    apis_listed: 1
+    version_count: 1
+    first_added: '2021-01-11'
+    last_updated: '2023-02-20'
+    origin_publisher_hosted: true
+    origin_hosts:
+    - api.openapi-generator.tech
+    categories:
+    - developer_tools
+    own_openapi_files: 2
+    listings:
+    - key: openapi-generator.tech
+      title: OpenAPI Generator Online
+      preferred: 6.2.1
+      versions: 1
+      swagger_url: https://api.apis.guru/v2/specs/openapi-generator.tech/6.2.1/openapi.json
+      origin_url: http://api.openapi-generator.tech/api-docs
+      openapi_version: '2.0'
+    signal_note: 'participation only: a community directory listing (APIs.guru collects definitions; the provider
+      did not file them). Signals: version_count, apis_listed, origin_publisher_hosted.'
+    detected_by: sweep-openapi-directory-apis-guru.py
+    detected: '2026-10-22'
+  detected_by: sweep-openapi-directory-apis-guru.py
+  first_seen: '2026-10-22'
 generated: '2026-10-18'
 method: searched
 source:
@@ -82,3 +123,5 @@ checked:
 - https://registry.npmjs.org
 - https://repo1.maven.org/maven2
 - https://rubygems.org/api/v1
+- https://api.apis.guru/v2/list.json
+- https://api.apis.guru/v2/providers.json
