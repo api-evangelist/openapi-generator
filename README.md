@@ -1,4 +1,4 @@
-# OpenAPI Generator (openapi-generator)
+# OpenAPI Generator
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,53 +64,130 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-OpenAPI Generator is an open-source tool that generates client libraries, server stubs, API documentation, and configuration automatically given an OpenAPI Specification. It supports over 50 client generators in various programming languages and frameworks.
+OpenAPI Generator is a community-governed, Apache-2.0 open-source project that generates client libraries (SDKs), server stubs, API documentation and configuration automatically from an OpenAPI Specification (v2 and v3). Forked from Swagger Codegen in 2018 by more than 40 of that project's top contributors and template creators, it is one of the most widely deployed implementations of the OpenAPI Specification in existence. The product is a CLI plus Maven, Gradle and sbt plugins, a Docker image and an embeddable JVM library, distributed through npm, PyPI, Maven Central, Homebrew, Scoop and Docker Hub. A hosted Online Generator REST API at api.openapi-generator.tech offers the same generation over HTTP, anonymously and without a key, across 84 client generators and 65 server frameworks.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/openapi-generator/refs/heads/main/apis.yml)
+**Areas:** Code Generation · Documentation · Open Source · OpenAPI · SDK · API Tooling · Developer Tools · Swagger · Server Stubs · Codegen · SDK Generation
 
-## Scope
+## OpenAPI Generator on APIs.io
 
-- **Type:** Index
-- **Position:** Consumer
-- **Access:** 3rd-Party
+Everything profiled for OpenAPI Generator is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/openapi-generator/](https://apis.io/providers/openapi-generator/)** — or go straight to one of the APIs or properties below.
 
-## Tags:
+### APIs (2)
 
- - Code Generation, Documentation, Open Source, OpenAPI, SDK
+- [OpenAPI Generator Clients API](https://apis.io/apis/openapi-generator/openapi-generator-clients-api/) — The clients API from OpenAPI Generator — 3 operation(s) for clients.
+- [OpenAPI Generator Servers API](https://apis.io/apis/openapi-generator/openapi-generator-servers-api/) — The servers API from OpenAPI Generator — 3 operation(s) for servers.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-28
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### MCP servers (1)
 
-### OpenAPI Generator
-OpenAPI Generator generates client libraries, server stubs, API documentation, and configuration from OpenAPI specifications, supporting over 50 languages and frameworks.
+Model Context Protocol servers that expose the API to agents.
 
-**Human URL:** [https://openapi-generator.tech](https://openapi-generator.tech)
+- [openapi-generator-mcp.yml](https://apis.io/servers/openapi-generator/openapi-generator-mcp-yml/)
 
-#### Tags:
+#### Collections (2)
 
- - Code Generation, OpenAPI, SDK
+Postman and Open Collection request collections.
 
-#### Properties
+- [OpenAPI Generator Online Clients API](https://apis.io/collections/openapi-generator/open-openapi-generator-clients-api/)
+- [OpenAPI Generator Online Servers API](https://apis.io/collections/openapi-generator/open-openapi-generator-servers-api/)
 
-- [Documentation](https://openapi-generator.tech/docs/installation)
-- [Getting Started](https://openapi-generator.tech/docs/usage)
-- [GitHub Repository](https://github.com/OpenAPITools/openapi-generator)
+#### Overlays (1)
 
-## Common Properties
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Openapi Generator Online Overlay](https://apis.io/overlays/openapi-generator/openapi-generator-online-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Openapi Generator Authentication](https://apis.io/security/openapi-generator/openapi-generator-authentication/)
+- [Openapi Generator Domain Security](https://apis.io/security/openapi-generator/openapi-generator-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Openapi Generator Plans Pricing](https://apis.io/plans/openapi-generator/openapi-generator-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Openapi Generator Rate Limits](https://apis.io/rate-limits/openapi-generator/openapi-generator-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Openapi Generator Finops](https://apis.io/finops/openapi-generator/openapi-generator-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://openapi-generator.tech)
 - [Documentation](https://openapi-generator.tech/docs/installation)
-- [GitHub Organization](https://github.com/OpenAPITools/openapi-generator)
+- [Getting started](https://openapi-generator.tech/docs/usage)
+- [API reference](https://api.openapi-generator.tech/)
+- [Support](https://github.com/OpenAPITools/openapi-generator/issues)
 - [Blog](https://openapi-generator.tech/blog)
-- [FAQ](https://openapi-generator.tech/docs/faq)
-- [Generators](https://openapi-generator.tech/docs/generators)
+- [GitHub](https://github.com/OpenAPITools)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
+**Kin Score 40.5** — developing · rubric 0.25.0 · scored 2026-10-23
 
-**Email:** kin@apievangelist.com
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 39.8 |
+| Contract governance | 4.5 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 66.1 |
+| Access clarity | 21.1 |
+
+**Agent readiness 20.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/openapi-generator/](https://apis.io/providers/openapi-generator/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for OpenAPI Generator: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/openapi-generator/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
