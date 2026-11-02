@@ -1,0 +1,87 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: OpenAPI Generator
+providerId: openapi-generator
+created: '2026-05-04'
+modified: '2026-08-06'
+generated: '2026-08-06'
+method: searched
+source: https://openapi-generator.tech + https://github.com/OpenAPITools/openapi-generator
+tags:
+  - Code Generation
+  - Documentation
+  - Open Source
+  - OpenAPI
+  - SDK
+description: >-
+  OpenAPI Generator has no commercial plans. It is a community-governed
+  Apache-2.0 open-source project: the CLI, the library, the Maven/Gradle/sbt
+  plugins, the Docker image and the hosted Online Generator API are all free,
+  with no sign-up, no API key, no metering and no paid tier. This file previously
+  carried scaffold free/pro/enterprise tiers with invented request quotas and
+  prices; those were never published by the provider and were removed on
+  2026-08-06.
+pricing_model: free-open-source
+license: Apache-2.0
+license_url: https://github.com/OpenAPITools/openapi-generator/blob/master/LICENSE
+signup_required: false
+api_key_required: false
+metered: false
+plans:
+  - id: openapi-generator-open-source
+    name: Open Source
+    type: free
+    price: '0.00'
+    currency: USD
+    description: >-
+      The entire product. Install the CLI via npm, Homebrew, Scoop, PyPI, Docker,
+      a JAR or JBang, or embed the library from Maven Central. No account, no
+      key, no limits enforced by the project.
+    url: https://openapi-generator.tech/docs/installation
+    entries: []
+  - id: openapi-generator-online
+    name: Hosted Online Generator
+    type: free
+    price: '0.00'
+    currency: USD
+    description: >-
+      The public hosted generation API at api.openapi-generator.tech. Anonymous
+      and free. No SLA, no status page, no published rate limit, and the deployed
+      build trails the current release line — a convenience surface, not a
+      supported service.
+    url: https://openapi-generator.tech/docs/online
+    entries: []
+funding:
+  model: volunteer / community
+  note: >-
+    Governance sits with the OpenAPI Generator core team
+    (https://openapi-generator.tech/team). No commercial entity sells or supports
+    the project; the docs point to GitHub Issues, Slack and Stack Overflow for
+    help.
+evidence:
+  - {url: 'https://openapi-generator.tech/docs/installation', http_status: 200, paid_tier_documented: false, fetched: '2026-08-06'}
+  - {url: 'https://openapi-generator.tech/docs/faq', http_status: 200, commercial_offering: false, fetched: '2026-08-06'}
+  - {url: 'https://api.openapi-generator.tech/api/gen/clients', http_status: 200, credentials: none, fetched: '2026-08-06'}
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - free
+  units: []
+  plans:
+  - name: Open Source
+    access: free
+    model: free
+    model_how: derived
+    units: []
+    periods: []
+  - name: Hosted Online Generator
+    access: free
+    model: free
+    model_how: derived
+    units: []
+    periods: []
