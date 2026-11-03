@@ -44,6 +44,9 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  heartbeat/2026-11-02.yml:
+    method: unknown
+    evidence: no authorship recorded
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
@@ -53,7 +56,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-10-31T095417.yml:
+  kin/checks-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -110,6 +113,15 @@ artifacts:
   kin/score-2026-10-31T095417.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-01T171331.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-01T200237.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  kin/score-2026-11-02T082323.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
   lifecycle/openapi-generator-lifecycle.yml:
     method: searched
     evidence: declared in the artifact
@@ -135,12 +147,18 @@ artifacts:
   packages/openapi-generator-packages.yml:
     method: searched
     evidence: declared in the artifact
+  patterns/openapi-generator-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/openapi-generator-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
   rate-limits/openapi-generator-rate-limits.yml:
     method: unknown
     evidence: no authorship recorded
+  rules/openapi-generator-rules.yml:
+    method: generated
+    evidence: declared in the artifact
   security/openapi-generator-domain-security.yml:
     method: unknown
     evidence: no authorship recorded
@@ -154,6 +172,9 @@ artifacts:
     method: generated
     evidence: declared in the artifact
   skills/openapi-generator-generate-server.md:
+    method: generated
+    evidence: declared in the artifact
+  sla/openapi-generator-sla.yml:
     method: generated
     evidence: declared in the artifact
   vendor-facets/openapi-generator-vendor-facets.yml:
